@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.lnight.datastoreproject.preferencesDataStore
 import kotlinx.coroutines.flow.first
 
 @Composable
@@ -31,20 +32,20 @@ fun PreferencesScreen(
             when (event) {
                 is PreferencesEvent.SaveValue -> {
                     val dataStoreKey = stringPreferencesKey(event.key)
-                    context.dataStore.edit {
+                    context.preferencesDataStore.edit {
                         it[dataStoreKey] = event.value
                     }
                     Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT).show()
                 }
                 is PreferencesEvent.ClearPreferences -> {
-                    context.dataStore.edit {
+                    context.preferencesDataStore.edit {
                         it.clear()
                     }
                     Toast.makeText(context, "Cleared!", Toast.LENGTH_SHORT).show()
                 }
                 is PreferencesEvent.GetValue -> {
                     val dataStoreKey = stringPreferencesKey(event.key)
-                    val preferences = context.dataStore.data.first()
+                    val preferences = context.preferencesDataStore.data.first()
                    event.OnSuccess(preferences[dataStoreKey] ?: "No data found")
                 }
             }
