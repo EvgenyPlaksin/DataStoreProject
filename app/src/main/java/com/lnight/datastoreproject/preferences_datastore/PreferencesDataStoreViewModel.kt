@@ -8,24 +8,30 @@ import kotlinx.coroutines.launch
 
 class PreferencesDataStoreViewModel: ViewModel() {
 
-    private val _preferencesEvent = Channel<PreferencesEvent>()
-    val preferencesEvent = _preferencesEvent.receiveAsFlow()
+    private val _uiEvent = Channel<UiEvent>()
+    val preferencesEvent = _uiEvent.receiveAsFlow()
 
     fun save(key: String, value: String) {
         viewModelScope.launch {
-            _preferencesEvent.send(PreferencesEvent.SaveValue(key, value))
+            _uiEvent.send(UiEvent.SaveValue(key, value))
         }
     }
 
     fun get(key: String, onSuccess: (String) -> Unit) {
         viewModelScope.launch {
-            _preferencesEvent.send(PreferencesEvent.GetValue(key, onSuccess))
+            _uiEvent.send(UiEvent.GetValue(key, onSuccess))
         }
     }
 
     fun clear() {
         viewModelScope.launch {
-            _preferencesEvent.send(PreferencesEvent.ClearPreferences)
+            _uiEvent.send(UiEvent.ClearPreferences)
+        }
+    }
+
+    fun navigate(route: String) {
+        viewModelScope.launch {
+            _uiEvent.send(UiEvent.Navigate(route))
         }
     }
 }
