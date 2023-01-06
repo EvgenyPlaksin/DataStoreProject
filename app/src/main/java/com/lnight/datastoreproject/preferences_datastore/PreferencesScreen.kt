@@ -30,7 +30,7 @@ fun PreferencesScreen(
         mutableStateOf("")
     }
     LaunchedEffect(key1 = true) {
-        viewModel.preferencesEvent.collect { event ->
+        viewModel.uiEvent.collect { event ->
             when (event) {
                 is UiEvent.SaveValue -> {
                     val dataStoreKey = stringPreferencesKey(event.key)

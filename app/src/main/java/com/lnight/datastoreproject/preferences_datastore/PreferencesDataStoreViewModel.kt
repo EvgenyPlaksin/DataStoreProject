@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 class PreferencesDataStoreViewModel: ViewModel() {
 
     private val _uiEvent = Channel<UiEvent>()
-    val preferencesEvent = _uiEvent.receiveAsFlow()
+    val uiEvent = _uiEvent.receiveAsFlow()
 
     fun save(key: String, value: String) {
         viewModelScope.launch {
