@@ -1,4 +1,4 @@
-package com.lnight.datastoreproject.proto_datastore
+package com.lnight.datastoreproject.proto_datastore.without_protobuf
 
 import androidx.datastore.core.Serializer
 import kotlinx.serialization.SerializationException

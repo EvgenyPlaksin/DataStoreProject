@@ -1,11 +1,13 @@
 package com.lnight.datastoreproject.preferences_datastore
 
+import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -19,6 +21,7 @@ import androidx.navigation.NavController
 import com.lnight.datastoreproject.preferencesDataStore
 import kotlinx.coroutines.flow.first
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PreferencesScreen(
     navController: NavController,
@@ -26,7 +29,7 @@ fun PreferencesScreen(
 ) {
 
     val context = LocalContext.current
-    var text by remember {
+    var text by rememberSaveable {
         mutableStateOf("")
     }
     LaunchedEffect(key1 = true) {
@@ -59,28 +62,26 @@ fun PreferencesScreen(
 
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = { viewModel.navigate("proto_screen") }) {
+            FloatingActionButton(onClick = { viewModel.navigate("proto_without_protobuf_screen") }) {
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowRight,
                     contentDescription = "Navigate"
                 )
             }
         },
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+        modifier = Modifier.fillMaxSize()
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it)
+                .padding(16.dp)
         ) {
             Spacer(modifier = Modifier.height(50.dp))
 
-            var edittextKeyText by remember {
+            var edittextKeyText by rememberSaveable {
                 mutableStateOf("")
             }
-            var edittextValueText by remember {
+            var edittextValueText by rememberSaveable {
                 mutableStateOf("")
             }
 
@@ -115,7 +116,7 @@ fun PreferencesScreen(
 
             Spacer(modifier = Modifier.height(50.dp))
 
-            var edittextGetText by remember {
+            var edittextGetText by rememberSaveable {
                 mutableStateOf("")
             }
 

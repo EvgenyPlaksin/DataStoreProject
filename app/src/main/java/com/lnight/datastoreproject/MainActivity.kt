@@ -11,7 +11,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.lnight.datastoreproject.preferences_datastore.PreferencesScreen
-import com.lnight.datastoreproject.proto_datastore.ProtoScreen
+import com.lnight.datastoreproject.proto_datastore.with_protobuf.ProtoWithProtobufScreen
+import com.lnight.datastoreproject.proto_datastore.without_protobuf.ProtoWithoutProtobufScreen
 import com.lnight.datastoreproject.ui.theme.DataStoreProjectTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,8 +29,11 @@ class MainActivity : ComponentActivity() {
                         composable("preferences_screen") {
                             PreferencesScreen(navController = navController)
                         }
-                        composable("proto_screen") {
-                            ProtoScreen()
+                        composable("proto_without_protobuf_screen") {
+                            ProtoWithoutProtobufScreen(navController = navController)
+                        }
+                        composable("proto_with_protobuf_screen") {
+                            ProtoWithProtobufScreen()
                         }
                     }
                 }
