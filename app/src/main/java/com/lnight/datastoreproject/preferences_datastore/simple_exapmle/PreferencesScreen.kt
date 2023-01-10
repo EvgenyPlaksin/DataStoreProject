@@ -1,4 +1,4 @@
-package com.lnight.datastoreproject.preferences_datastore
+package com.lnight.datastoreproject.preferences_datastore.simple_exapmle
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -62,7 +62,7 @@ fun PreferencesScreen(
 
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = { viewModel.navigate("proto_without_protobuf_screen") }) {
+            FloatingActionButton(onClick = { viewModel.navigate("encrypted_preferences_screen") }) {
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowRight,
                     contentDescription = "Navigate"

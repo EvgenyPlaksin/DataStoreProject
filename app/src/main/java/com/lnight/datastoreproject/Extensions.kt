@@ -3,15 +3,23 @@ package com.lnight.datastoreproject
 import android.content.Context
 import androidx.datastore.dataStore
 import androidx.datastore.preferences.preferencesDataStore
+import com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences.CryptoManager
+import com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences.UserSettingsSerializer
 import com.lnight.datastoreproject.proto_datastore.with_protobuf.UserDataSerializer
 import com.lnight.datastoreproject.proto_datastore.without_protobuf.AppSettingsSerializer
 
 private const val DATASTORE_PREFERENCES_NAME = "preferences_datastore"
+private const val DATASTORE_ENCRYPTED_PREFERENCES_NAME = "encrypted_preferences_datastore.json"
 private const val DATASTORE_PROTO_WITHOUT_PROTOBUF_NAME = "proto_datastore_no_protobuf.json"
 private const val DATASTORE_PROTO_WITH_PROTOBUF_NAME = "proto_datastore_protobuf.json"
 
 val Context.preferencesDataStore by preferencesDataStore(
     name = DATASTORE_PREFERENCES_NAME
+)
+
+val Context.encryptedPreferencesDataStore by dataStore(
+    fileName = DATASTORE_ENCRYPTED_PREFERENCES_NAME,
+    serializer = UserSettingsSerializer(CryptoManager())
 )
 
 val Context.protoDataStoreWithoutProtobuf by dataStore(

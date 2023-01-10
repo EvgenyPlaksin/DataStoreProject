@@ -1,4 +1,4 @@
-package com.lnight.datastoreproject.preferences_datastore
+package com.lnight.datastoreproject.preferences_datastore.simple_exapmle
 
 sealed interface UiEvent {
     class SaveValue(val key: String, val value: String): UiEvent
