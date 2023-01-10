@@ -3,8 +3,8 @@ package com.lnight.datastoreproject
 import android.content.Context
 import androidx.datastore.dataStore
 import androidx.datastore.preferences.preferencesDataStore
-import com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences.CryptoManager
-import com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences.UserSettingsSerializer
+import com.lnight.datastoreproject.encrypted_datastore.CryptoManager
+import com.lnight.datastoreproject.encrypted_datastore.UserSettingsSerializer
 import com.lnight.datastoreproject.proto_datastore.with_protobuf.UserDataSerializer
 import com.lnight.datastoreproject.proto_datastore.without_protobuf.AppSettingsSerializer
 

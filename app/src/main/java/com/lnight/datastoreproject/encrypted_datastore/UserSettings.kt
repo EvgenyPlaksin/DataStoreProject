@@ -1,4 +1,4 @@
-package com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences
+package com.lnight.datastoreproject.encrypted_datastore
 
 import kotlinx.serialization.Serializable
 

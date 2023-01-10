@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences.EncryptedPreferencesScreen
-import com.lnight.datastoreproject.preferences_datastore.simple_exapmle.PreferencesScreen
+import com.lnight.datastoreproject.encrypted_datastore.EncryptedDataStoreScreen
+import com.lnight.datastoreproject.preferences_datastore.PreferencesScreen
 import com.lnight.datastoreproject.proto_datastore.with_protobuf.ProtoWithProtobufScreen
 import com.lnight.datastoreproject.proto_datastore.without_protobuf.ProtoWithoutProtobufScreen
 import com.lnight.datastoreproject.ui.theme.DataStoreProjectTheme
@@ -30,8 +30,8 @@ class MainActivity : ComponentActivity() {
                         composable("preferences_screen") {
                             PreferencesScreen(navController = navController)
                         }
-                        composable("encrypted_preferences_screen") {
-                            EncryptedPreferencesScreen(navController = navController)
+                        composable("encrypted_datastore_screen") {
+                            EncryptedDataStoreScreen(navController = navController)
                         }
                         composable("proto_without_protobuf_screen") {
                             ProtoWithoutProtobufScreen(navController = navController)

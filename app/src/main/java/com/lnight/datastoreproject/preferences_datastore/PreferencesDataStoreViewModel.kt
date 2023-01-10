@@ -1,4 +1,4 @@
-package com.lnight.datastoreproject.preferences_datastore.simple_exapmle
+package com.lnight.datastoreproject.preferences_datastore
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.lnight.datastoreproject.preferences_datastore.ecrypted_preferences
+package com.lnight.datastoreproject.encrypted_datastore
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun EncryptedPreferencesScreen(
+fun EncryptedDataStoreScreen(
     navController: NavController
 ) {
     var username by rememberSaveable {
