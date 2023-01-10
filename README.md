@@ -22,4 +22,8 @@ The project also shows an example of Proto DataStore implementation without sche
 
 In this table you can see the main advantages of DataStore over SharedPreferences:
 
-<img src="https://user-images.githubusercontent.com/94696816/211640422-93807765-220b-4b7a-944e-ff53b0bf35e9.png" width="600" height="500" />
+<img src="https://user-images.githubusercontent.com/94696816/211642500-33357165-6ce9-4fde-90e1-a5ab7a0f044a.png" width="720" height="450" />
+
+(1) SharedPreferences has a synchronous API that can appear safe to call on the UI thread, but which actually does disk I/O operations. Furthermore, ```apply()``` blocks the UI thread on ```fsync()```. Pending ```fsync()``` calls are triggered every time any service starts or stops, and every time an activity starts or stops anywhere in your application. The UI thread is blocked on pending ```fsync()``` calls scheduled by a```pply()```, often becoming a source of [ANRs](https://developer.android.com/topic/performance/vitals/anr).
+
+(2) SharedPreferences throws parsing errors as runtime exceptions.
