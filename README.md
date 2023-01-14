@@ -18,6 +18,9 @@ Proto DataStore stores data as instances of a custom data type.
 This type of DataStore may require schema definition using protocol buffers, but provides type safety.
 The project also shows an example of Proto DataStore implementation without schema definition, using [Kotlin Serialisation](https://kotlinlang.org/docs/serialization.html) plugin.
 
+### Encrypted DataStore
+This repository also contains a bonus part about data encryption in the DataStore. It uses a special class from my [Encryption and Decryption](https://github.com/EvgenyPlaksin/EncriptionAndDecriptionProject) repository.
+
 ### Jetpack DataStore vs SharedPreferences
 
 In this table you can see the main advantages of DataStore over SharedPreferences:
